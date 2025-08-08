@@ -23,7 +23,7 @@ public class Main {
                 cifra = leitor.readLine();
 
             }
-            System.out.println("Digite a senha: ");
+            System.out.print("Digite a senha: ");
             senha = leitor.readLine();
         } catch (Exception e) {
             System.out.println(e);
@@ -42,19 +42,19 @@ public class Main {
     }
 
     private static String encriptar(String mensagem, String senha) {
-            String cifra = "";
-            for (int i = 0;i < mensagem.length(); i++) {
-                int letraMensagem = mensagem.charAt(i);
-                int letraSenha = senha.charAt(i % senha.length());
-                int letraCifra = (letraMensagem ^ letraSenha);
-                String temp = Integer.toHexString(0xFF & letraCifra);
-                if (temp.length() == 1) {
-                    temp = "0" + temp;
-                }
-                cifra += temp;
+        String cifra = "";
+        for (int i = 0;i < mensagem.length(); i++) {
+            int letraMensagem = mensagem.charAt(i);
+            int letraSenha = senha.charAt(i % senha.length());
+            int letraCifra = (letraMensagem ^ letraSenha);
+            String temp = Integer.toHexString(0xFF & letraCifra);
+            if (temp.length() == 1) {
+                temp = "0" + temp;
+            }
+            cifra += temp;
         }
 
-            return cifra;
+        return cifra;
     }
 
     private static String decriptar(String cifra, String senha) {
